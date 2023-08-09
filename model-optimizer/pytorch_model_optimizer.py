@@ -195,7 +195,6 @@ def load_trt_engine():
 
 def trt_malloc(inp_data):
     """malloc tensorrt的input和output的cpu和gpu内存"""
-    # h_input = cuda.pagelocked_empty(trt.volume(input_shape), dtype=np.float32)
     h_input = np.array(inp_data)
     # Allocate device memory for inputs and outputs.
     # print('h_input.nbytes: {}, h_output.nbytes: {}'.format(h_input.nbytes, h_output.nbytes))
