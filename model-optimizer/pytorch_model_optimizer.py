@@ -158,7 +158,7 @@ def onnx_2_trt_engine_by_api():
     print('Creating trt serialized engining...')
     # build trt config
     config = builder.create_builder_config()
-    config.max_workspace_size = 1 << 30  # 1GB
+    # config.max_workspace_size = 1 << 30  # 1GB
     # 混合精度
     config.set_flag(trt.BuilderFlag.TF32)
     config.set_flag(trt.BuilderFlag.FP16)
