@@ -61,6 +61,8 @@ if __name__ == "__main__":
     model.eval()
     model = model.cuda()
     out = model(inp1.cuda(), inp2.cuda())
+    traced = torch.jit.trace(model, [inp1.cuda(), inp2.cuda()])
+    torch.jit.save(traced, './my_mat_mul.pt')
 
     # 转换成ONNX
     model_onnx_path = "./my_mat_mul.onnx"
