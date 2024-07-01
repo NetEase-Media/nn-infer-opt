@@ -31,6 +31,7 @@ if __name__ == '__main__':
     b = tf.convert_to_tensor(inp2)
     with tf.device('cpu:0'):
         c = model([a, b])
+        tf.saved_model.save(model, 'my_mat_mul')
 
     # Save to onnx
     model_onnx_path = 'my_mat_mul.onnx'
