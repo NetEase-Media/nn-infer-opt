@@ -51,6 +51,9 @@ MESSAGE(STATUS "CUDA_NVCC_FLAGS: ${CUDA_NVCC_FLAGS}")
 
 
 # prepare tensorflow env.
+# TensorFlow 网站上提供的二进制 pip 软件包使用 gcc4 构建，该编译器使用旧版 ABI。
+# 添加 -D_GLIBCXX_USE_CXX11_ABI=0，使库与旧版 ABI 兼容。
+#add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
 add_definitions(-D_GLIBCXX_USE_CXX11_ABI=1)
 add_definitions(-DGOOGLE_CUDA=1)
 # tf.sysconfig.get_include()获取
