@@ -34,6 +34,7 @@ if __name__ == '__main__':
         a = tf.ones([3, 3])
         b = model(a)
         print('calc with gpu op, a: {}\nb: {}'.format(a, b))
+        tf.saved_model.save(model, './tf_custom_op')
 
     # Save to onnx
     model_onnx_path = 'model.onnx'
